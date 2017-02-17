@@ -28,7 +28,7 @@
             android:summary="@string/auto_update_prevent"
             android:title="@string/auto_prevent" />
 
-        <me.piebridge.prevent.ui.ListPreferenceSummary
+        <moe.johnny.tombstone.ui.ListPreferenceSummary
             android:defaultValue="-1"
             android:entries="@array/force_stop_entries"
             android:entryValues="@array/force_stop_values"

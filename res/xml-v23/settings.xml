@@ -34,7 +34,7 @@
             android:summary="@string/use_app_standby_settings"
             android:title="@string/use_app_standby" />
 
-        <me.piebridge.prevent.ui.ListPreferenceSummary
+        <moe.johnny.tombstone.ui.ListPreferenceSummary
             android:defaultValue="-1"
             android:entries="@array/force_stop_entries"
             android:entryValues="@array/force_stop_values"

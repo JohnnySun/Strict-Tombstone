@@ -1,9 +1,15 @@
 /bin
 /gen
 /obj
+/build
+/gradle
 
 ant.properties
 local.properties
+ForceStopGB.iml
+gradle.properties
+gradlew
+gradlew.bat
 project.properties
 build.xml
 custom_rules.xml
@@ -12,6 +18,8 @@ proguard-project.txt
 /.classpath
 /.project
 /.settings
+/.gradle
+/.idea
 
 *.log
 

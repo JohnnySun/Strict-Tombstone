@@ -67,12 +67,20 @@ android {
     }
 }
 
+repositories {
+    jcenter()
+}
+
 dependencies {
     provided fileTree(include: ['*.jar'], dir: 'lib')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('lib/AndroidHiddenAPI.jar')
-    compile files('lib/XposedBridgeApi-30.jar')
+    //compile files('lib/XposedBridgeApi-30.jar')
     compile files('libs/android-support-v4.jar')
+
+    provided 'de.robv.android.xposed:api:82'
+    //如果需要引入文档，方便查看的话
+    provided 'de.robv.android.xposed:api:82:sources'
 }
 
 tasks.withType(JavaCompile) {

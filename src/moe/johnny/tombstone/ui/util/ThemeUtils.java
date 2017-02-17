@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.preference.PreferenceManager;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import moe.johnny.tombstone.R;
@@ -58,11 +59,32 @@ public class ThemeUtils {
         try {
             ActionBar actionBar = activity.getActionBar();
             if (actionBar != null) {
-                actionBar.setActionBarViewCollapsable(true);
+                setActionBarViewCollapsable(actionBar, true);
             }
         } catch (NoSuchMethodError e) { // NOSONAR
             // do nothing
         }
     }
+
+    /**
+     * 调用 ActionBar.setActionBarViewCollapsable(boolean) 方法。
+     * 设置ActionBar顶栏无显示内容时是否隐藏。
+     */
+    private static void setActionBarViewCollapsable(ActionBar actionbar,
+                                                   boolean collapsable) {
+        try {
+            Method method = Class.forName("android.app.ActionBar").getMethod(
+                    "setActionBarViewCollapsable",
+                    new Class[] { boolean.class });
+            try {
+                method.invoke(actionbar, collapsable);
+            } catch (IllegalArgumentException|IllegalAccessException|InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        } catch (SecurityException|NoSuchMethodException|ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
